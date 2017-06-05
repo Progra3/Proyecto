@@ -1,0 +1,63 @@
+﻿@model ProyectoProgra3.Models.Clientes
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutTema.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Clientes</legend>
+
+        @Html.HiddenFor(model => model.ClienteID)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Nombres)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Nombres)
+            @Html.ValidationMessageFor(model => model.Nombres)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Apellidos)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Apellidos)
+            @Html.ValidationMessageFor(model => model.Apellidos)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Direccion)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Direccion)
+            @Html.ValidationMessageFor(model => model.Direccion)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Telefono)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Telefono)
+            @Html.ValidationMessageFor(model => model.Telefono)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
